@@ -12,16 +12,18 @@ namespace PVN1721050441.Models
         {
         }
         public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Lecture> Lectures { get; set; }
 
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Role>()
-                .Property(e => e.RoleID)
-                .IsUnicode(false);
-            modelBuilder.Entity<Role>()
-                .Property(e => e.RoleName)
+            modelBuilder.Entity<Lecture>()
+                .Property(e => e.Faculty)
+                .IsUnicode(true);
+            modelBuilder.Entity<Lecture>()
+                .Property(e => e.Department)
                 .IsUnicode(true);
         }
     }
